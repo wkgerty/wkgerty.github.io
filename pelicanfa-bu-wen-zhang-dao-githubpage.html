@@ -6,7 +6,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>wkgerty的技术分享 - wkgerty</title>
+        <title>    pelican发布文章到GithubPage
+</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
             <link rel="stylesheet" href="/theme/css/normalize.css">
@@ -52,6 +53,7 @@
                         </time>
                         <a href="/pelicanfa-bu-wen-zhang-dao-githubpage.html" rel="bookmark"><h1>pelican发布文章到GithubPage</h1></a>
                     </header>
+
                     <section class="post-content">
                         <h1>pelican发布文章到GithubPage</h1>
 <p><img alt="这是一张图片" src="pics/pelican.png" title="我的图片"></p>
@@ -69,30 +71,54 @@
 <span class="n">Date</span><span class="o">:</span><span class="w"> </span><span class="mi">2010</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">03</span><span class="w"> </span><span class="mi">10</span><span class="o">:</span><span class="mi">20</span>
 <span class="n">Category</span><span class="o">:</span><span class="w"> </span><span class="n">Review</span>
 
-<span class="err">这是一篇简单的小 …</span></code></pre></div>
-                    </section>
-                </article>
-            </li>
-            <hr/>
-            <li>
-                <article class="post-entry">
-                    <header class="entry-header">
-                        <time class="post-time" datetime="2010-12-03T10:20:00+08:00" pubdate>
-                            五 03 十二月 2010
-                        </time>
-                        <a href="/di-yi-pian-wen-zhang.html" rel="bookmark"><h1>第一篇文章</h1></a>
-                    </header>
-                    <section class="post-content">
-                        <p>这是一篇简单的小文章</p>
-                    </section>
-                </article>
-            </li>
-            <hr/>
-        </ol>
-        <div class="paginator">
-            Page 1 / 1
-        </div>
+<span class="err">这是一篇简单的小文章</span>
+</code></pre></div>
 
+<p>保存到项目 content目录下</p>
+<div class="highlight"><pre><span></span><code>~/projects/yoursite/content/小文章.md
+</code></pre></div>
+
+<h1>生成网站</h1>
+<p>创建theme目录</p>
+<div class="highlight"><pre><span></span><code>mkdir theme
+</code></pre></div>
+
+<p>下载主题，以 pelican-cait 为例子</p>
+<div class="highlight"><pre><span></span><code>git clone https://github.com/hdra/pelican-cait.git
+</code></pre></div>
+
+<p>编译，并指定主题</p>
+<div class="highlight"><pre><span></span><code>pelican content -s pelicanconf.py -t /path/to/your/theme
+</code></pre></div>
+
+<h1>预览</h1>
+<p>不指定主题</p>
+<div class="highlight"><pre><span></span><code>pelican --listen
+</code></pre></div>
+
+<p>指定主题</p>
+<div class="highlight"><pre><span></span><code>pelican content -s pelicanconf.py -t /path/to/your/theme
+</code></pre></div>
+
+<h1>发布到 Github</h1>
+<p>创建 xxx.github.io 项目，在生成的 polican 目录下的 output 目录下初始化 git，</p>
+<div class="highlight"><pre><span></span><code><span class="n">cd</span><span class="w"> </span><span class="p">.</span><span class="o">/</span><span class="k">output</span>
+<span class="n">git</span><span class="w"> </span><span class="n">init</span><span class="w"> </span><span class="p">.</span>
+<span class="n">git</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="p">.</span>
+<span class="n">git</span><span class="w"> </span><span class="k">commit</span><span class="w"> </span><span class="o">-</span><span class="n">m</span><span class="w"> </span><span class="ss">&quot;更新博客&quot;</span>
+<span class="n">git</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="o">[</span><span class="n">github用户名</span><span class="o">]</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span><span class="p">.</span><span class="n">git</span>
+<span class="n">git</span><span class="w"> </span><span class="n">branch</span><span class="w"> </span><span class="o">-</span><span class="n">M</span><span class="w"> </span><span class="n">main</span>
+<span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="o">-</span><span class="n">u</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">main</span>
+</code></pre></div>
+                    </section>
+                    <hr/>
+                    <aside class="post-meta">
+                        <p>Category: <a href="/category/pelican.html">pelican</a></p>
+                    </aside>
+                    <hr/>
+                </article>
+            </li>
+        </ol>
     </div>
         </div>
 
